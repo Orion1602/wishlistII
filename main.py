@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response, redirect, url_for
 from models import User, db
 
 app = Flask(__name__)
@@ -7,6 +7,9 @@ db.create_all()
 
 @app.route("/", methods=["GET"])
 def index():
+    user_name = request.cookies.get("name")
+    user = db.query(User).filter_by(name=user_name).first()
+
     return render_template("index.html")
 
 
@@ -25,7 +28,10 @@ def getwishes():
     db.add(user)
     db.commit()
 
-    return render_template("thanks.html")
+    response = make_response(redirect(url_for('index')))
+    response.set_cookie("user_name", name)
+
+    return response
 
 
 if __name__ == '__main__':
