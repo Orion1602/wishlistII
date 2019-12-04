@@ -41,5 +41,12 @@ def showmywishes():
     return render_template("me.html", user=user)
 
 
+@app.route("/users", methods=["GET"])
+def all_users():
+    users = db.query(User).all()
+
+    return render_template("users.html", users=users)
+
+
 if __name__ == '__main__':
     app.run()
