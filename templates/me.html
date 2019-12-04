@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+<p><strong>Your name:</strong> {{ user.name }}</p>
+<p><strong>Your wish:</strong> {{ user.wone }}</p>
+<p><strong>Your wish:</strong> {{ user.wtwo }}</p>
+<p><strong>Your wish:</strong> {{ user.wthree }}</p>
+<p><strong>Your wish:</strong> {{ user.wfour }}</p>
+<p><strong>Your wish:</strong> {{ user.wfive }}</p>
+<p><strong>Your wish:</strong> {{ user.wsix }}</p>
+
+
+<p><a href="/profile/edit">Edit profile</a></p>
+{% endblock content %}

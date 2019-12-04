@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>Enter your wishes:</p>
+
+    <form method="post" action="/my-wishes">
+    <input type="text" name="user-name" placeholder="Enter your name">
+    <br>
+
+    <input type="text" name="user-wone" placeholder="Enter a wish">
+    <br>
+
+    <input type="text" name="user-wtwo" placeholder="Enter a wish">
+    <br>
+
+    <input type="text" name="user-wthree" placeholder="Enter a wish">
+    <br>
+
+    <input type="text" name="user-wfour" placeholder="Enter a wish">
+    <br>
+
+    <input type="text" name="user-wfive" placeholder="Enter a wish">
+    <br>
+
+    <input type="text" name="user-wsix" placeholder="Enter a wish">
+    <br>
+
+    <textarea name="user-message" placeholder="Enter your message"></textarea>
+    <br>
+
+    <button type="submit">Submit</button>
+    </form>
+{% endblock content %}
