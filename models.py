@@ -13,3 +13,4 @@ class User(db.Model):
     wfour = db.Column(db.String)
     wfive = db.Column(db.String)
     wsix = db.Column(db.String)
+    um = db.Column(db.String)

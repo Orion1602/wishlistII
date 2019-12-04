@@ -1,3 +1,27 @@
 body {
 background-color: dimgray;
 }
+
+.button {
+  background-color: darkseagreen;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 2px;
+  height: 20px;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.main {
+margin-left: 300px;
+}
+
+img {
+border-radius: 8px;
+}

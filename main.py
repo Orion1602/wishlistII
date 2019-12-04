@@ -22,27 +22,22 @@ def getwishes():
     wfour = request.form.get("user-wfour")
     wfive = request.form.get("user-wfive")
     wsix = request.form.get("user-wsix")
+    um = request.form.get("user-message")
 
-    user = User(name=name, wone=wone, wtwo=wtwo, wthree=wthree, wfour=wfour, wfive=wfive, wsix=wsix)
+    user = User(name=name, wone=wone, wtwo=wtwo, wthree=wthree, wfour=wfour, wfive=wfive, wsix=wsix, um=um)
 
     db.add(user)
     db.commit()
 
-    response = make_response(redirect(url_for("showmywishes")))
+    response = make_response(redirect(url_for("thank_you")))
     response.set_cookie("user_name", name)
 
     return response
 
 
-@app.route("/me", methods=["GET"])
-def showmywishes():
-    user_name = request.cookies.get("name")
-    user = db.query(User).filter_by(name=user_name).first()
-
-    if user:
-        return render_template("me.html", user=user)
-    else:
-        return redirect(url_for("index"))
+@app.route("/thankyou", methods=["GET"])
+def thank_you():
+    return render_template("thanks.html")
 
 
 @app.route("/users", methods=["GET"])
