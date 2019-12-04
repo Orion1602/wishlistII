@@ -28,10 +28,17 @@ def getwishes():
     db.add(user)
     db.commit()
 
-    response = make_response(redirect(url_for('index')))
+    response = make_response(redirect(url_for("showmywishes")))
     response.set_cookie("user_name", name)
 
     return response
+
+
+@app.route("/me", methods=["GET"])
+def showmywishes():
+    user_name = request.cookies.get("name")
+    user = db.query(User).filter_by(name=user_name).first()
+    return render_template("me.html", user=user)
 
 
 if __name__ == '__main__':
