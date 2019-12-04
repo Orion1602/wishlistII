@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.name }}{% endblock title %}
+
+{% block content %}
+<h3>{{ user.name }}</h3>
+
+<p><strong>Wish one:</strong> {{ user.wone }}</p>
+<p><strong>Wish two:</strong> {{ user.wtwo }}</p>
+<p><strong>Wish three:</strong> {{ user.wthree }}</p>
+<p><strong>Wish four:</strong> {{ user.wfour }}</p>
+<p><strong>Wish five:</strong> {{ user.wfive }}</p>
+<p><strong>Wish six:</strong> {{ user.wsix }}</p>
+
+
+
+{% endblock content %}

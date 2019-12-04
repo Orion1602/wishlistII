@@ -38,7 +38,11 @@ def getwishes():
 def showmywishes():
     user_name = request.cookies.get("name")
     user = db.query(User).filter_by(name=user_name).first()
-    return render_template("me.html", user=user)
+
+    if user:
+        return render_template("me.html", user=user)
+    else:
+        return redirect(url_for("index"))
 
 
 @app.route("/users", methods=["GET"])
@@ -46,6 +50,13 @@ def all_users():
     users = db.query(User).all()
 
     return render_template("users.html", users=users)
+
+
+@app.route("/user/<user_id>", methods=["GET"])
+def user_details(user_id):
+    user = db.query(User).get(int(user_id))  # .get() can help you query by the ID
+
+    return render_template("user_details.html", user=user)
 
 
 if __name__ == '__main__':
